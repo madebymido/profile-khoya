@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif; 
+    cursor: none; 
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; 
+    z-index: 10000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.loading-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite alternate; 
+    margin-bottom: 10px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* --- CUSTOM PNG MOUSE CURSOR --- */
+body {
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    --mouse-x: 0px; 
+    --mouse-y: 0px;
+}
+
+#custom-cursor {
+    position: fixed;
+    width: 32px; 
+    height: 32px; 
+    background-image: url('assets/cursor.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 9999;
+    left: var(--mouse-x); 
+    top: var(--mouse-y); 
+    transform: translate(-50%, -50%); 
+    transition: transform 0.1s ease-out; 
+}
+
+
+button, a, .link-box, .music-player button, .toggle-text {
+    cursor: pointer;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.45) blur(2px);
+}
+
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10; 
+}
+
+.snowflake {
+    position: absolute;
+    text-shadow: 0 0 2px rgba(255, 250, 250, 0.7);
+    top: -50px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+}
+
+.card {
+    width: 420px;
+    padding: 40px;
+    margin: 60px auto;
+    border-radius: 25px;
+    background: rgba(20,20,20,0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    text-align: center;
+    position: relative; 
+    z-index: 20; 
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.15);
+    transition: box-shadow 0.3s ease-out; 
+}
+
+.avatar:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(135, 206, 250, 0.5); 
+}
+
+.username-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.label-value {
+    text-align: center;
+}
+
+.copy-icon {
+    width: 16px; 
+    height: 16px;
+    filter: invert(1);
+}
+
+#copyUsernameButton {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+    opacity: 0.7; 
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+#copyUsernameButton:hover {
+    opacity: 1; 
+    transform: scale(1.1);
+}
+
+.status-wrapper {
+    position: relative;
+    height: 1.5em;
+    margin-top: 35px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.status-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(135, 206, 250, 0.4),
+        0 0 40px rgba(0, 200, 255, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.status-text.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.links {
+    margin-top: 35px;
+    display: grid;
+    gap: 14px;
+}
+
+.link-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.07);
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.25s;
+}
+
+.link-box:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+.icon-img {
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
+    filter: invert(1);
+}
+
+.music-player {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#songTitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.player-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.music-player button {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0; 
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.music-player button:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.player-icon {
+    width: 20px; 
+    height: 20px;
+    filter: invert(1); 
+    vertical-align: middle;
+}
+
+.more-links-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.toggle-text:hover {
+    color: white;
+}
+
+.arrow-icon {
+    width: 16px; 
+    height: 16px;
+    filter: invert(1); 
+    margin-left: 8px; 
+    transition: transform 0.3s ease-out; 
+}
+
+.hidden-links {
+    max-height: 0; 
+    overflow: hidden; 
+    display: grid;
+    gap: 10px;
+    transition: max-height 0.4s ease-in-out; 
+    margin-top: 0; 
+}
+
+.show-links {
+    max-height: 500px; 
+    margin-top: 15px;
+}
+
+.rotate-arrow {
+    transform: rotate(180deg);
+}
+
+
+footer {
+    margin-top: 25px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 50; 
+    
+    display: flex;
+    align-items: center;
+}
+
+.visitor-icon {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+.visitor-count {
+    font-weight: 700;
+    color: white;
+}

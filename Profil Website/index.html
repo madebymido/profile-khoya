@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!Khoya</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="assets/avatar.gif" alt="Loading Avatar" class="loading-avatar">
+            <p>Loading Assets...</p>
+        </div>
+    </div>
+
+    <div id="custom-cursor"></div> 
+    
+    <div id="snow-container"></div>
+
+    <video class="background-video" autoplay loop muted>
+        <source src="video/bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="card">
+
+        <img class="avatar" src="assets/avatar.gif" alt="Khoya's Avatar">
+
+        <h1 id="displayName">!Khoya</h1>
+        
+        <div class="username-container">
+            <p class="username" id="username">@khoya.berlin</p>
+            <button id="copyUsernameButton" title="Benutzername kopieren">
+                <img src="icons/copy.svg" alt="Kopieren Icon" class="copy-icon">
+            </button>
+        </div>
+        
+        <div class="status-wrapper">
+            <span class="status-text active" id="text-0" data-text="Developer"></span>
+            <span class="status-text" id="text-1" data-text="19yo"></span>
+            <span class="status-text" id="text-2" data-text="Berlin"></span>
+            <span class="status-text" id="text-3" data-text="Streamer"></span>
+            <span class="status-text" id="text-4" data-text="Analyst"></span>
+            <span class="status-text" id="text-5" data-text="FiveM"></span>
+            <span class="status-text" id="text-6" data-text="Designer"></span>
+            <span class="status-text" id="text-7" data-text="Gamer"></span>
+        </div>
+
+        <div class="links">
+            <a class="link-box" href="https://dsc.gg/khoya" target="_blank">
+                <img class="icon-img" src="icons/discord.svg">
+                <span>Discord</span>
+            </a>
+
+            <a class="link-box" href="https://www.tiktok.com/@khya0riginal" target="_blank">
+                <img class="icon-img" src="icons/tiktok.svg">
+                <span>TikTok</span>
+            </a>
+
+            <a class="link-box" href="https://open.spotify.com/user/3167po5bcyxhjavweboebr4wqgey?si=87fe7cd42511420d" target="_blank">
+                <img class="icon-img" src="icons/spotify.svg">
+                <span>Spotify</span>
+            </a>
+        </div>
+
+        <div class="music-player">
+            <p id="songTitle">Wähle einen Song</p>
+            
+            <div class="player-controls">
+                <button onclick="prevSong()">
+                    <img src="icons/prev.svg" alt="Vorheriger Song" class="player-icon">
+                </button>
+                <button onclick="togglePlay()" id="playPauseButton">
+                    <img src="icons/play.svg" alt="Play/Pause" class="player-icon" id="playPauseIcon">
+                </button>
+                <button onclick="nextSong()">
+                    <img src="icons/next.svg" alt="Nächster Song" class="player-icon">
+                </button>
+            </div>
+        </div>
+
+        <audio id="player"></audio>
+
+        <div class="more-links-container">
+            <p id="moreLinksToggle" class="toggle-text">
+                More Links <img src="icons/arrow-down.svg" alt="Pfeil nach unten" class="arrow-icon">
+            </p>
+            
+            <div id="hiddenLinks" class="hidden-links">
+                
+                <a class="link-box" href="https://github.com/madebymido" target="_blank">
+                    <img class="icon-img" src="icons/github.svg">
+                    <span>GitHub</span>
+                </a>
+
+                <a class="link-box" href="mailto:midow03065@gmail.com" target="_blank">
+                    <img class="icon-img" src="icons/email.svg">
+                    <span>E-Mail</span>
+                </a>
+                
+            </div>
+        </div>
+        
+        <footer>
+            <span>© Coded by Khoya - 2026</span>
+        </footer>
+    </div>
+    
+    <div class="visitor-counter">
+        <img src="icons/eye.svg" alt="Eye Icon" class="visitor-icon">
+        <span class="visitor-count">170</span>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
